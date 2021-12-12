@@ -14,7 +14,8 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Hexmappy.  If not, see <https://www.gnu.org/licenses/>.
+    along with Hexmappy. It can be found in the root directory of this program
+    under the name 'COPYING'.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 import utils

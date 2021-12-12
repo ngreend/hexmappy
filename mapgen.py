@@ -14,7 +14,8 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Hexmappy.  If not, see <https://www.gnu.org/licenses/>.
+    along with Hexmappy. It can be found in the root directory of this program
+    under the name 'COPYING'.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 import random
@@ -144,29 +145,9 @@ class MapGen():
                 
                 m.append(r)
                 
-        return (self.biominate(self.automatize(m)), utils.get_uniqueID())
+        return (self.automatize(m), utils.get_uniqueID())
 
-    def biominate(self, m):
-        return m
-        tmp = OpenSimplex(utils.get_uniqueID())
-        if self.orientation == "H":
-            for row in range(self.height):
-                r = []
-                for col in range(self.width):
-                    if m[row][col].cell_tile_name == "grass.png":
-                        val = (tmp.noise2d(col/2, row/2)/2) + (tmp.noise2d(row/2, col/2)/2)
-                        tile_name_noise = "void.png"
-                        if val < 0.0:
-                            tile_name_noise = "grass.png"
-                        elif val < 0.4:
-                            tile_name_noise = "forest.png"
-                        else:
-                            tile_name_noise = "mountain.png"
-                        
-                        m[row][col].tileType = tile_name_noise
-        return m
-
-    #this uses a get_neighbors function that I can just put in utils if I am not lazy
+    #performs cellular automata on our hexmap
     def automatize(self, m, laps=4):
         if self.orientation == "H":
             for i in range(laps):
