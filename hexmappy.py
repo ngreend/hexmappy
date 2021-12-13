@@ -108,7 +108,7 @@ class Main():
         self._settings_draw_grid = True
         self._settings_draw_cell_names = True
         self._settings_default_editor = ""
-        self._settings_IMAGE_IN_RAM_MODE = True
+        self._settings_IMAGE_IN_RAM_MODE = True #this should be safe to delete.
         self._settings_default_save_location = os.path.join(os.path.dirname(__file__), "saves")
 
         if not os.path.isdir(self._settings_default_save_location):
@@ -127,7 +127,7 @@ class Main():
         self.palette_scaled_tile_height = 0
         self._tileset_primary = list(self.tiles[self._map_orientation].keys())[0]
         self._tileset_secondary = list(self.tiles[self._map_orientation].keys())[-1]
-        #tools = PENCIL, BUCKET, NOTE,  
+        #tools = PENCIL, BUCKET,  
         self.current_tool = "PENCIL" 
         #print(self._tileset_primary + ", " + self._tileset_secondary)
 
