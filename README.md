@@ -9,7 +9,7 @@ left click to interact
 
 mouse wheel to zoom in/ zoom out.
 
-####Note Editor
+**####Note Editor**
 
 -on windows Notepad is the default.
 
@@ -17,14 +17,14 @@ mouse wheel to zoom in/ zoom out.
 
 -A default text editor can be set by editing hexmappy.py and putting your default text editors name into the quotes on line 110.
 
-Examples:
+**Examples:**
 
 self._settings_default_editor = "notepad.exe"
 self._settings_default_editor = "emacs"
 self._settings_default_editor = ""
 
 
-###Planned Changes:
+**###Planned Changes:**
 
 -Add visual for which tool (pencil or bucket) is selected.
 
