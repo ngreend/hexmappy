@@ -30,5 +30,7 @@ self._settings_default_editor = "kate"
 
 Adding tilesets:
   Place all images into a single folder named under the following scheme: <tileset_name>x<image_height>x<image_width>.
+  
   example: "defaultx200x175", "mytilesetx200x175"
+  
   *avoid using the letter x in your tileset name, at least for now.*
