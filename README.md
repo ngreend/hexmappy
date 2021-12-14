@@ -26,16 +26,9 @@ self._settings_default_editor = "emacs"
 self._settings_default_editor = "kate"
 
 
-**###Planned Changes:**
+**Planned Changes:**
 
--Add visual for which tool (pencil or bucket) is selected.
-
--Make pop-up windows appear at a location that makes sense.
-
--add an undo/redo queue
-
--add a config file for users to set controls/ default behavior of the app.
-
--implement the grow/shrink map feature to add rows/columns to existing maps.
-
--import existing images to be used as hexmap background (overlay a grid onto existing image)
+Adding tilesets:
+  Place all images into a single folder named under the following scheme: <tileset_name>x<image_height>x<image_width>.
+  example: "defaultx200x175", "mytilesetx200x175"
+  *avoid using the letter x in your tileset name, at least for now.*
