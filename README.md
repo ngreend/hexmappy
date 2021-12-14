@@ -25,6 +25,8 @@ mouse wheel to zoom in/ zoom out.
 
 **####Note Editor**
 
+-Notes are saved in the 'saves' folder inside the folder with the name of the map. The name of the map can be found in the window title after "Hexmappy V1.0 --" and should be a sequence of numbers unless the folder name was manually changed.
+
 -on windows Notepad is the default.
 
 -on other platforms a tkinter text box will open. When done adding text close the window and the text is saved automatically.
