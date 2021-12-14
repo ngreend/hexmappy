@@ -20,8 +20,10 @@ mouse wheel to zoom in/ zoom out.
 **Examples:**
 
 self._settings_default_editor = "notepad.exe"
+
 self._settings_default_editor = "emacs"
-self._settings_default_editor = ""
+
+self._settings_default_editor = "kate"
 
 
 **###Planned Changes:**
