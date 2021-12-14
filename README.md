@@ -52,4 +52,6 @@ example: "defaultx200x175", "mytilesetx200x175"
 
 **Saves Folder**
 
-Folders can be renamed safely, a new .hexmap file will be saved using the name of the folder on your next save.
+Folders inside the saves directory be renamed safely, a new .hexmap file will be saved using the name of the folder on your next save.
+
+Support for naming your maps before saving coming soon™
