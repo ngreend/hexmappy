@@ -169,6 +169,8 @@ class Main():
         
         self.caption = "Hexmappy 1.0"
         pygame.display.set_caption(f'{self.caption} -- {self._map_name}')
+        self.logo = utils.loadImage("logo.png")
+        pygame.display.set_icon(self.logo)
 
         if self._settings_IMAGE_IN_RAM_MODE:
             self.makeMapSurface()
@@ -434,10 +436,14 @@ class Main():
         root = tk.Tk()
         root.withdraw()
         test = fd.askdirectory(title="Enter Tileset Folder", initialdir=os.path.join(os.path.dirname(__file__), "tilesets"))
-        if isinstance(test, str):
-            self.loadTileset(test)
-            #print(self.tiles["V"])
-            self.rebuild_UI()
+        if isinstance(test, str) and test.strip() != "":
+            folder = test.split(os.path.sep)
+            if folder[-1] != "tilesets":
+                self.loadTileset(test)
+                #print(self.tiles["V"])
+                self.rebuild_UI()
+                self.drawHexMap()
+        root.destroy()
 
     #this function imports an image as a pygame surface, for the intended
     #purpose of overlayign a grid onto the image and using it as a background for our map
@@ -449,6 +455,7 @@ class Main():
         if len(test) > 0:
             self.map_surface_source = utils.loadImage(test, COLORKEY=False)
             self.map_surface_source_rect = self.map_surface_source.get_rect()
+        root.destroy()
 
     def swapToBucket(self):
         self.current_tool = "BUCKET"
@@ -526,11 +533,10 @@ class Main():
     def newBlankMap(self):
         data = []
         self.newBlankMapDialog(data)
-        #print(data)
         if len(data) > 0:
             self._map_height = data[0]
             self._map_width = data[1]
-            self._map_orientation = data[2]        
+            self._map_orientation = data[2]
             self.genny.resize(self._map_height, self._map_width, self._map_orientation)
             self._map, self._map_name = self.genny.getNewBlankMap(self._tileset_primary)
             self.makeMapSurface()
@@ -543,7 +549,7 @@ class Main():
         root.title("New Blank Map")
         newMapHeight = tk.StringVar(root)
         newMapWidth = tk.StringVar(root)
-        newMapOrientation = tk.IntVar()
+        newMapOrientation = tk.IntVar(root)
         orientations = ["H", "V"]
         labelHeight = tk.Label(root, text="Height of map in tiles: ").grid(row=1,column=0,sticky="w")
         labelWidth = tk.Label(root, text="Width of map in ties: ").grid(row=2,column=0,sticky="w")
@@ -551,19 +557,18 @@ class Main():
         texWidth = tk.Entry(root, textvariable=newMapWidth).grid(row=2,column=1,sticky="w")
         labelAlignment = tk.Label(root, text="Hexagon Alignment:").grid(row=3,sticky="w")
         radioHor = tk.Radiobutton(root, text="Horizontal", variable=newMapOrientation, value=0).grid(row=4,sticky="w")
-        radioHor = tk.Radiobutton(root, text="Vertical", variable=newMapOrientation, value=1).grid(row=5,sticky="w")
+        radioVer = tk.Radiobutton(root, text="Vertical", variable=newMapOrientation, value=1).grid(row=5,sticky="w")
 
         #would be nice to inclue a popup if the value entered isnt a number.
         def test():
             numHeight = newMapHeight.get()
             numWidth = newMapWidth.get()
+            ori_int = int(newMapOrientation.get())
             if (numHeight.isnumeric() and numWidth.isnumeric()):
                 data.append(int(numHeight))
                 data.append(int(numWidth))
-                data.append(orientations[newMapOrientation.get()])
+                data.append(orientations[ori_int])
                 root.destroy()
-            else:
-                pass
 
         def on_close():
             root.destroy()
@@ -881,6 +886,7 @@ class Main():
         offset_row_toggle = 0
 
         if REDRAW_ALL:
+            self.map_surface_source.fill(utils.BLACK)
             for row in range(len(self._map)):
                 #print(offset_row_toggle)
                 for col in range(len(self._map[0])):
@@ -916,7 +922,7 @@ class Main():
                         j = i + 1
                         if j == len(points):
                             j = 0
-                        pygame.draw.lines(self.map_surface_source, utils.GRID_LINE_COLOR, False, (points[i], points[j]), width=3)
+                        pygame.draw.lines(self.map_surface_source, utils.GRID_LINE_COLOR, False, (points[i], points[j]), width=4)
                         if offset_row_toggle == 0:
                             offset_row_toggle = 1
                         else:

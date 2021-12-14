@@ -103,7 +103,7 @@ class MapGen():
                     val = random.randint(0,1)
                     tile_name_noise = "void.png"
                     if val < 1:
-                        tile_name_noise = "water-deep.png"
+                        tile_name_noise = "water.png"
                     else:
                         tile_name_noise = "grass.png"
                     
@@ -131,7 +131,7 @@ class MapGen():
                     val = random.randint(0, 1)
                     tile_name_noise = "void.png"
                     if val < 1:
-                        tile_name_noise = "water-deep.png"
+                        tile_name_noise = "water.png"
                     else:
                         tile_name_noise = "grass.png"
                     
@@ -166,7 +166,7 @@ class MapGen():
                                 matches += 1
                         if m[row][col].tileType == "grass.png":
                             if matches < 3: #2 change in conjunction with line ~605 for thinner landmasses
-                                copy_of_m[row][col].tileType = "water-deep.png"
+                                copy_of_m[row][col].tileType = "water.png"
                         #for smaller islands, change this to a 4
                         elif matches > 3: #4 change in conjunction with line ~605 for thinner landmasses
                             copy_of_m[row][col].tileType = "grass.png"
@@ -189,7 +189,7 @@ class MapGen():
                                 matches += 1
                         if m[row][col].tileType == "grass.png":
                             if matches < 3: #2 change in conjunction with line ~605 for thinner landmasses
-                                copy_of_m[row][col].tileType = "water-deep.png"
+                                copy_of_m[row][col].tileType = "water.png"
                         #for smaller islands, change this to a 4
                         elif matches > 3: #4 change in conjunction with line ~605 for thinner landmasses
                             copy_of_m[row][col].tileType = "grass.png"
