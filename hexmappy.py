@@ -709,7 +709,12 @@ class Main():
     def loadTileset(self, directory):
         self.tiles["V"].clear()
         self.tiles["H"].clear()
-        path = directory.split(os.path.sep)
+        #on windows tkinter askdirectory dialog gives us a path with '/'...
+        path = directory
+        if "/" in path:
+            path = path.split("/")
+        else:
+            path = path.split(os.path.sep)
         tileset_name = path[-1].split("x")
         #print(tileset_name)
         self.tile_size["H"] = (int(tileset_name[1]), int(tileset_name[2]))
