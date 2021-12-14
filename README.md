@@ -1,5 +1,5 @@
 # hexmappy
-Hexagon tile based map editor.
+Hexmappy is a hex-grid map making tool intended for creating region maps for ttrpgs and hex-crawls. It has a simple MS paint-like interface for painting maps, and is almost as visually appealing.  It has simple note taking functionality that allows you to link text files to individual hex tiles, to aid in encounter planning or world-building. Hexmappy is written in python and has been tested and runs on windows, mac, and linux. 
 
 ## Installation
 
@@ -14,7 +14,6 @@ pip install pygame
 ```
 python hexmappy.py
 ```
-
 
 ## Controls:
 
