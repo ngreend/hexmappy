@@ -42,11 +42,15 @@ self._settings_default_editor = "kate"
 
 **Adding tilesets:** 
 
-Place all images into a single folder named under the following scheme: <tileset_name>x<image_height>x<image_width>.
+- _**Your tileset is required to have a tile named "grass.png" and a tile named "water.png".**_
 
-example: "defaultx200x175", "mytilesetx200x175"
+- Place all images into a single folder named under the following scheme: <tileset_name>x<image_height>x<image_width>.
 
-*avoid using the letter x in your tileset name, at least for now.*
+- tile images should have a pointy side of the hexagon pointed directly up, flat sides on the left and right of the image.
+example: "defaultx200x175", "mytilesetx420x69"
+
+- *avoid using the letter x in your tileset name for now.*
+
 
 **Saving Maps**
 
