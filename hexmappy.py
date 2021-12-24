@@ -23,6 +23,7 @@ import platform
 import random
 import math
 from operator import floordiv
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = '1'
 import pygame
 from pygame.locals import *
 import threading
@@ -40,7 +41,8 @@ class Main():
         pygame.init()
         self.CLOCK = pygame.time.Clock()
         #self.LABEL_FONT = pygame.font.SysFont("DejaVu Sans Mono", 48, bold=True)
-        
+
+
         pygame.key.set_repeat(0)
 
         self.SCREEN_WIDTH = 1440
